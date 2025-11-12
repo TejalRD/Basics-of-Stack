@@ -12,11 +12,11 @@ class CustomStack:
     def pop(self) -> int:
         if not self.stack:
             return -1
-        i = len(self.stack) -1
-        x = self.stack.pop() + self.inc[i]        
+        i = len(self.stack) -1  #index of top element
+        x = self.stack.pop() + self.inc[i]        #pop top element and add pending increment
         if i>0:
             self.inc[i-1] += self.inc[i]
-        self.inc[i] =0
+        self.inc[i] =0  #clear the increment for popped index
         return x
 
     def increment(self, k: int, val: int) -> None:
